@@ -13,3 +13,6 @@ app.use(bodyParser.urlencoded({ extended: false }));
 mongoose.connect('mongodb://localhost/codher', {useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true})
 .then(() => console.log('Connexion à MongoDB réussie !'))
 .catch(() => console.log('Connexion à MongoDB échouée !'));
+
+// Récuperation des models
+let User = require('./models/user');
