@@ -6,6 +6,9 @@ const express = require('express');
     jwt = require('jsonwebtoken'),
     app = express();
 
+// parse application/x-www-form-urlencoded
+app.use(bodyParser.urlencoded({ extended: false }));
+
 // Initialisation de la connexion à la base de données
 mongoose.connect('mongodb://localhost/codher', {useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true})
 .then(() => console.log('Connexion à MongoDB réussie !'))
