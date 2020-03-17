@@ -14,5 +14,11 @@ mongoose.connect('mongodb://localhost/codher', {useNewUrlParser: true, useUnifie
 .then(() => console.log('Connexion à MongoDB réussie !'))
 .catch(() => console.log('Connexion à MongoDB échouée !'));
 
-// Récuperation des models
-let User = require('./models/user');
+// // Récuperation des models
+// let User = require('./models/user');
+
+// Récuperation des controllers
+let AuthController = require('./controllers/auth');
+
+// Déclaration des routes de notre application
+app.route('/register').post(AuthController.register);

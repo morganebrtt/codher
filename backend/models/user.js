@@ -41,9 +41,9 @@ let userSchema = new mongoose.Schema({
     updatedDate: {
         type: String
     },
-    skillsId: {
-    },
-    interestsId: {}
+    // skillsId: {
+    // },
+    // interestsId: {}
 });
 
 module.exports = mongoose.model('User', userSchema);
