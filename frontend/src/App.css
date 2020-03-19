@@ -10,10 +10,12 @@ html {
 
 body {
   font-family: 'Roboto', sans-serif;
+  background-color: #FFF;
+  height: 100%;
 }
 
 h1{
   text-transform: uppercase;
-  letter-spacing: 2px;
+  letter-spacing: 8px;
   color: #FFF;
 }
