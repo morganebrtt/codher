@@ -2,15 +2,25 @@ import React from 'react';
 import './HomeHeader.css';
 import Women from '../../Assets/img/women.png';
 
-const HomeHeader = () => {
-    return (
-        <header id="homeHeader">
-            <h1>codher</h1>
-            <div id="homeImgContainer">
-                <img id="homeImg" src={Women} alt="women"></img>
+const HomeHeader = (props) => {
+    console.log(props)
+    return props.isAuthHeader 
+    ? (
+        <header className="homeHeader">
+            <h1 className="authTitle">AUTH</h1>
+            <div className="homeImgContainer">
+                <img className="homeImg authImg" src={Women} alt="women" />
+            </div>
+        </header>)
+    : (
+        <header className="homeHeader">
+            <h1>LANDING</h1>
+            <div className="homeImgContainer">
+                <img className="homeImg" src={Women} alt="women" />
             </div>
         </header>
     )
+
 };
 
 export default HomeHeader;
