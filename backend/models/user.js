@@ -3,7 +3,6 @@ const mongoose = require('mongoose');
 let userSchema = new mongoose.Schema({
     firstName: {
         type: String,
-        // required: 'Prénom obligatoire'
     },
     email: {
         type: String,
@@ -15,35 +14,41 @@ let userSchema = new mongoose.Schema({
         required: 'Mot de passe obligatoire'
     },
     bio: {
-        type: String
+        type: String,
     },
     profilePic: {
-        type: String
+        type: String,
     },
     city: {
-        type: String
+        type: String,
     },
     experience: {
-        type: String
+        type: String,
     },
     status: {
-        type: String
+        type: String,
     },
     needHelp: {
-        type: String
+        type: String,
     },
     canHelp: {
-        type: String
+        type: String,
     },
     createdDate: {
-        type: String
+        type: Date,
+        default: Date.now,
     },
     updatedDate: {
-        type: String
+        type: Date, 
+        default: Date.now,
     },
     // skillsId: {
     // },
     // interestsId: {}
+    admin: {
+        type: Boolean,
+        default: false,
+    }
 });
 
 module.exports = mongoose.model('User', userSchema);
