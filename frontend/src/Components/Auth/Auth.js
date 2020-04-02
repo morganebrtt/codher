@@ -1,15 +1,17 @@
 import React from 'react';
-import './Login.css';
+import './Auth.css';
 import ViewWrapper from '../ViewWrapper/ViewWrapper';
 import HomeHeader from '../Headers/HomeHeader';
+import Login from './Login';
 
 
-const Login = () => {
+const Auth = () => {
     return (
         <ViewWrapper>
         <HomeHeader isAuthHeader />
+        <Login />
         </ViewWrapper>
     )
-}
+};
 
-export default Login;
+export default Auth;

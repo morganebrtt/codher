@@ -1,15 +1,15 @@
 import React from 'react';
 import './App.css';
 import Home from './Components/Home/Home';
-import Login from './Components/Login/Login';
+import Auth from './Components/Auth/Auth';
 
 function App() {
   return (
       <>
         <Home />
-        <Login />
+        <Auth />
       </>
   );
-}
+};
 
 export default App;

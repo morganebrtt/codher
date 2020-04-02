@@ -4,6 +4,9 @@
     flex-direction: column;
     justify-content: flex-end;
     align-items: center;
+}
+
+.authHeader{
     position: relative;
 }
 

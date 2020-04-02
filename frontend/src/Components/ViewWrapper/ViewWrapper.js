@@ -3,7 +3,7 @@ import './ViewWrapper.css';
 
 const ViewWrapper = (props) => {
     return(
-        <section id="viewWrapper">
+        <section className="viewWrapper">
             {props.children}
         </section>
     )
