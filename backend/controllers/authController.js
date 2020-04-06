@@ -1,4 +1,4 @@
-// // Récuperation des models
+// // Récuperation du model
 const User = require('../models/user');
 bcrypt = require ('bcrypt');
 jwt = require('jsonwebtoken'),
@@ -28,7 +28,7 @@ exports.login = function(req, res) {
                     res.status(200).json({auth: true, token: token})
                 }
                 else
-                    res.status(201).json({auth: false, message: "password not match"});
+                    res.status(201).json({auth: false, message: "password don't match"});
             });
         };
     });
