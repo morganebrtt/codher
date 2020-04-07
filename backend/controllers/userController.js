@@ -31,8 +31,8 @@ exports.getUserById = function(req, res) {
             console.log(err); 
             res.status(401).json('No token provided'); 
         }
-        else if ({_id : decoded.id}){
-            User.findOne({_id: decoded.id}, function(err, user){
+        else {
+            User.findOne({_id: req.params.id}, function(err, user){
                 if (err)
                     res.status(400).json(err);
                 else
@@ -50,8 +50,8 @@ exports.deleteUser = function(req, res){
             console.log(err);
             res.status(401).json('No token provided'); 
         }
-        else if ({_id : decoded.id}){
-            User.deleteOne({_id: decoded.id}, function(err) {
+        else if (decoded.id == req.params.id){
+            User.deleteOne({_id: req.params.id}, function(err) {
                 if(err)
                     res.status(400).json(err)
                 else
