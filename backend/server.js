@@ -24,6 +24,7 @@ let UserController = require('./controllers/userController');
 // Déclaration des routes de notre application
 app.route('/auth/register').post(AuthController.register);
 app.route('/auth/login').post(AuthController.login);
+app.route('/user/getall').get(UserController.getAllUsers);
 
 
 app.listen(port);
