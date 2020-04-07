@@ -42,7 +42,7 @@ exports.getUserById = function(req, res) {
     });
 }; 
 
-// supprimer un user (en tant qu'user)
+// supprimer un user (en tant qu'user ou en tant qu'admin)
 
 exports.deleteUser = function(req, res){
     jwt.verify(req.headers["x-access-token"], jwt_secret, function(err, decoded){
@@ -52,6 +52,14 @@ exports.deleteUser = function(req, res){
         }
         else if ({_id : decoded.id}){
             User.deleteOne({_id: decoded.id}, function(err) {
+                if(err)
+                    res.status(400).json(err)
+                else
+                    res.status(200).json('user has been deleted');
+            });
+        }
+        else if (decoded.admin){
+            User.deleteOne({_id: req.params.id}, function(err) {
                 if(err)
                     res.status(400).json(err)
                 else
