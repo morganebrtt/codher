@@ -25,8 +25,11 @@ let UserController = require('./controllers/userController');
 app.route('/auth/register').post(AuthController.register);
 app.route('/auth/login').post(AuthController.login);
 app.route('/auth/admlogin').post(AuthController.admLogin);
+
 app.route('/user/getall').get(UserController.getAllUsers);
 app.route('/user/getById').get(UserController.getUserById);
+app.route('/user/updateone').put(UserController.updateUser);
+app.route('/user/deleteone').delete(UserController.deleteUser);
 
 
 app.listen(port);

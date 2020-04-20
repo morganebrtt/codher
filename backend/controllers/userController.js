@@ -42,6 +42,27 @@ exports.getUserById = function(req, res) {
     });
 }; 
 
+// mettre à jour un user en tant qu'user
+
+exports.updateUser = function(req,res){
+    jwt.verify(req.headers["x-access-token"], jwt_secret, function(err, decoded){
+        if (err) {
+            console.log(err);
+            res.status(401).json('No token provided'); 
+        }
+        else if (decoded.id == req.params.id) {
+            User.updateOne({_id: req.params.id}, {$set: req.body}, function(err) {
+                if(err) {
+                    res.status(400).json(err);
+                }
+                else {
+                    res.status(200).json('user has been updated');
+                }
+            });
+        };
+    });
+};
+
 // supprimer un user (en tant qu'user ou en tant qu'admin)
 
 exports.deleteUser = function(req, res){
