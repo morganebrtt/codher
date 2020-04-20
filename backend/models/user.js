@@ -42,8 +42,12 @@ let userSchema = new mongoose.Schema({
         type: Date, 
         default: Date.now,
     },
-    // skillsId: {
-    // },
+    skillId: [
+        {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: "Skill"
+        }
+    ],
     // interestsId: {}
     admin: {
         type: Boolean,
