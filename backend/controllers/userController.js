@@ -10,7 +10,7 @@ exports.getAllUsers = function(req, res) {
     jwt.verify(req.headers["x-access-token"], jwt_secret, function (err, decoded){
         if (err){
             console.log (err)
-            return ('Not an admin')
+            res.status(401).json('not an admin');
         }      
         else if(decoded.admin){
             User.find({}, function(err, users){
@@ -18,10 +18,10 @@ exports.getAllUsers = function(req, res) {
                     res.status (400).json (err)
                 else
                     res.status(200).json(users)
-                })
-            }
-        })
-}
+            });
+        };
+    });
+};
 
 // obtenir un user avec son Id 
 
