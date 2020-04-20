@@ -33,6 +33,7 @@ app.route('/user/updateone').put(UserController.updateUser);
 app.route('/user/deleteone').delete(UserController.deleteUser);
 
 app.route('/skill/create').post(SkillController.createSkill);
+app.route('/skill/delete').delete(SkillController.deleteSkill);
 
 
 app.listen(port);

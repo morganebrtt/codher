@@ -22,3 +22,22 @@ exports.createSkill = function(req, res) {
         };
     });
 };
+
+//supprimer une compétence (admin)
+
+exports.deleteSkill = function(req, res) {
+    jwt.verify(req.headers["x-access-token"], jwt_secret, function(err, decoded){
+        if (err){
+            console.log (err)
+            res.status(401).json('not an admin');
+        }   
+        else if(decoded.admin){
+            Skill.deleteOne({_id: req.params.id}, function(err) {
+                if(err)
+                    res.status(400).json(err)
+                else
+                    res.status(200).json('skill has been deleted');
+            });
+        };
+    });
+};
