@@ -28,12 +28,18 @@ let userSchema = new mongoose.Schema({
     status: {
         type: String,
     },
-    needHelp: {
-        type: String,
-    },
-    canHelp: {
-        type: String,
-    },
+    needHelp: [
+        {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: "Skill"
+        }
+    ],
+    canHelp: [
+        {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: "Skill"
+        }
+    ],
     createdDate: {
         type: Date,
         default: Date.now,
@@ -42,7 +48,7 @@ let userSchema = new mongoose.Schema({
         type: Date, 
         default: Date.now,
     },
-    skillId: [
+    skillsId: [
         {
             type: mongoose.Schema.Types.ObjectId,
             ref: "Skill"
