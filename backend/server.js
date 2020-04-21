@@ -37,5 +37,6 @@ app.route('/skill/create').post(SkillController.createSkill);
 app.route('/skill/delete').delete(SkillController.deleteSkill);
 
 app.route('/interest/create').post(InterestController.createInterest);
+app.route('/interest/delete').delete(InterestController.deleteInterest);
 
 app.listen(port);
