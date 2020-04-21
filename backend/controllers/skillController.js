@@ -31,12 +31,12 @@ exports.deleteSkill = function(req, res) {
             console.log (err)
             res.status(401).json('not an admin');
         }   
-        else if(decoded.admin){
-            Skill.deleteOne({_id: req.params.id}, function(err) {
+        else if(decoded.admin && req.body.id){
+            Skill.deleteOne({_id: req.body.id}, function(err, skill) {
                 if(err)
                     res.status(400).json(err)
                 else
-                    res.status(200).json('skill has been deleted');
+                    res.status(200).json(skill);
             });
         };
     });
