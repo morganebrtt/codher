@@ -21,6 +21,7 @@ mongoose.connect('mongodb://localhost/codher', {useNewUrlParser: true, useUnifie
 let AuthController = require('./controllers/authController');
 let UserController = require('./controllers/userController');
 let SkillController = require('./controllers/skillController');
+let InterestController = require('./controllers/interestController');
 
 // Déclaration des routes de notre application
 app.route('/auth/register').post(AuthController.register);
@@ -35,5 +36,6 @@ app.route('/user/deleteone').delete(UserController.deleteUser);
 app.route('/skill/create').post(SkillController.createSkill);
 app.route('/skill/delete').delete(SkillController.deleteSkill);
 
+app.route('/interest/create').post(InterestController.createInterest);
 
 app.listen(port);
