@@ -23,7 +23,7 @@ const ContainedButton = (props) => {
 
   return (
     <div className={classes.root}>
-      <Button variant="contained">
+      <Button type="submit" variant="contained">
         {children}
       </Button>
     </div>
