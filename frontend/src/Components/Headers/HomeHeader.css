@@ -1,0 +1,37 @@
+.homeHeader {
+    height: 48vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.authHeader{
+    position: relative;
+}
+
+.homeHeader h1 {
+    font-size: 2.5em;
+    color: #0C5D7B;
+}
+
+.authTitle {
+    position: absolute;
+    z-index: 1;
+    bottom: 12vh;
+}
+
+.homeImgContainer {
+    height: auto;
+    width: 100vw;
+}
+
+.homeImg {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+.authImg {
+    opacity: 0.3;
+}
