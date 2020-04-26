@@ -5,12 +5,15 @@ const express = require('express');
     bcrypt = require('bcrypt'),
     jwt = require('jsonwebtoken'),
     app = express();
+    cors = require('cors'),
     require('dotenv').config();
     port = 3050;
 
 // parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
+
+app.use(cors());
 
 // Initialisation de la connexion à la base de données
 mongoose.connect('mongodb://localhost/codher', {useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true})
