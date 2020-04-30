@@ -27,12 +27,12 @@ exports.login = function(req, res) {
         if(err)
             res.status(400).json({auth: false, message: err});
         else if (!user)
-            res.status(201).json({auth: false, message: "no user finded"});
+            res.status(201).json({auth: false, message: "user not found"});
         else {
             bcrypt.compare(req.body.password, user.password, function(err, result) {
                 if(result)
                 {
-                    let token = jwt.sign({ id: user._id, admin: false }, jwt_secret);
+                    let token = jwt.sign({ id: user._id, admin: false }, jwt_secret, {expiresIn: '1h'});
                     res.status(200).json({auth: true, token: token})
                 }
                 else
