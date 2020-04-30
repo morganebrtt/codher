@@ -41,3 +41,22 @@ exports.deleteSkill = function(req, res) {
         };
     });
 };
+
+// obtenir toutes les compétences
+
+exports.getAllskills = function(req, res) {
+    jwt.verify(req.headers["x-access-token"], jwt_secret, function (err, decoded){
+        if (err){
+            console.log (err)
+            res.status(401).json('not allowed');
+        }      
+        else if(decoded.id){
+            Skill.find({}, function(err, skills){
+                if (err) 
+                    res.status (400).json (err)
+                else
+                    res.status(200).json(skills)
+            });
+        };
+    });
+};
