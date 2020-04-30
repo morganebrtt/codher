@@ -36,6 +36,7 @@ app.route('/user/deleteone').delete(UserController.deleteUser);
 app.route('/skill/create').post(SkillController.createSkill);
 app.route('/skill/delete').delete(SkillController.deleteSkill);
 app.route('/skill/getall').get(SkillController.getAllskills);
+app.route('/skill/getbyid').get(SkillController.getSkillById);
 
 app.route('/interest/create').post(InterestController.createInterest);
 app.route('/interest/delete').delete(InterestController.deleteInterest);
