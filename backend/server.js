@@ -40,5 +40,6 @@ app.route('/skill/getall').get(SkillController.getAllskills);
 app.route('/interest/create').post(InterestController.createInterest);
 app.route('/interest/delete').delete(InterestController.deleteInterest);
 app.route('/interest/getall').get(InterestController.getAllInterests);
+app.route('/interest/getbyid').get(InterestController.getInterestById);
 
 app.listen(port);
