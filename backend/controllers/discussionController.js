@@ -41,3 +41,22 @@ exports.getAllDiscussions = function(req, res) {
         };
     });
 };
+
+// obtenir une discussion par son id (user)
+
+exports.getDiscussionById = function(req, res) {
+    jwt.verify(req.headers["x-access-token"], jwt_secret, function (err, decoded){
+        if (err){
+            console.log (err)
+            res.status(401).json('not allowed');
+        }      
+        else if(decoded.id){
+            Discussion.findById(req.body.id, function(err, discussion){
+                if (err) 
+                    res.status (400).json (err)
+                else
+                    res.status(200).json(discussion)
+            });
+        };
+    });
+};
