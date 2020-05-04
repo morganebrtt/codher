@@ -22,6 +22,7 @@ let AuthController = require('./controllers/authController');
 let UserController = require('./controllers/userController');
 let SkillController = require('./controllers/skillController');
 let InterestController = require('./controllers/interestController');
+let DiscussionController = require('./controllers/discussionController');
 
 // Déclaration des routes de notre application
 app.route('/auth/register').post(AuthController.register);
@@ -42,5 +43,7 @@ app.route('/interest/create').post(InterestController.createInterest);
 app.route('/interest/delete').delete(InterestController.deleteInterest);
 app.route('/interest/getall').get(InterestController.getAllInterests);
 app.route('/interest/getbyid').get(InterestController.getInterestById);
+
+app.route('/discussion/create').post(DiscussionController.createDiscussion);
 
 app.listen(port);
