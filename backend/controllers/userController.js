@@ -32,7 +32,7 @@ exports.getUserById = function(req, res) {
             res.status(401).json('No token provided'); 
         }
         else {
-            User.findOne({_id: req.params.id}, function(err, user){
+            User.findOne({_id: req.body.id}, function(err, user){
                 if (err)
                     res.status(400).json(err);
                 else

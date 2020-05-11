@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-let messageSchema = new.mongoose.Schema({
+let messageSchema = new mongoose.Schema({
     content: {
         type: String
     },
@@ -8,7 +8,7 @@ let messageSchema = new.mongoose.Schema({
         type: Date,
         default: Date.now,
     },
-    userId: {
+    senderId: {
         type : mongoose.Schema.Types.ObjectId, 
         ref: 'User'
     },

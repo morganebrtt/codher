@@ -41,3 +41,41 @@ exports.deleteInterest = function(req, res) {
         };
     });
 };
+
+// obtenir tous les intérêts
+
+exports.getAllInterests = function(req, res) {
+    jwt.verify(req.headers["x-access-token"], jwt_secret, function (err, decoded){
+        if (err){
+            console.log (err)
+            res.status(401).json('not allowed');
+        }      
+        else if(decoded.id){
+            Interest.find({}, function(err, interests){
+                if (err) 
+                    res.status (400).json (err)
+                else
+                    res.status(200).json(interests)
+            });
+        };
+    });
+};
+
+// obtenir un intérêt avec son Id 
+
+exports.getInterestById = function(req, res) {
+    jwt.verify(req.headers["x-access-token"], jwt_secret, function(err, decoded){
+        if (err) {
+            console.log(err); 
+            res.status(401).json('No token provided'); 
+        }
+        else {
+            Interest.findOne({_id: req.body.id}, function(err, interest){
+                if (err)
+                    res.status(400).json(err);
+                else
+                    res.status(200).json(interest);
+            });
+        };
+    });
+}; 

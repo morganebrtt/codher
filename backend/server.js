@@ -25,6 +25,8 @@ let AuthController = require('./controllers/authController');
 let UserController = require('./controllers/userController');
 let SkillController = require('./controllers/skillController');
 let InterestController = require('./controllers/interestController');
+let DiscussionController = require('./controllers/discussionController');
+let MessageController = require('./controllers/messageController');
 
 // Déclaration des routes de notre application
 app.route('/auth/register').post(AuthController.register);
@@ -32,14 +34,24 @@ app.route('/auth/login').post(AuthController.login);
 app.route('/auth/admlogin').post(AuthController.admLogin);
 
 app.route('/user/getall').get(UserController.getAllUsers);
-app.route('/user/getById').get(UserController.getUserById);
+app.route('/user/getbyid').get(UserController.getUserById);
 app.route('/user/updateone').put(UserController.updateUser);
 app.route('/user/deleteone').delete(UserController.deleteUser);
 
 app.route('/skill/create').post(SkillController.createSkill);
 app.route('/skill/delete').delete(SkillController.deleteSkill);
+app.route('/skill/getall').get(SkillController.getAllskills);
+app.route('/skill/getbyid').get(SkillController.getSkillById);
 
 app.route('/interest/create').post(InterestController.createInterest);
 app.route('/interest/delete').delete(InterestController.deleteInterest);
+app.route('/interest/getall').get(InterestController.getAllInterests);
+app.route('/interest/getbyid').get(InterestController.getInterestById);
+
+app.route('/discussion/create').post(DiscussionController.createDiscussion);
+app.route('/discussion/getall').get(DiscussionController.getAllDiscussions);
+app.route('/discussion/getbyId').get(DiscussionController.getDiscussionById);
+
+app.route('/message').post(MessageController.createMessage);
 
 app.listen(port);
