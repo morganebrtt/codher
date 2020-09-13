@@ -12,12 +12,14 @@ const useStyles = makeStyles(theme => ({
     display: "flex",
     flexDirection: "column",
     justifyContent: "center",
-    alignItems: "center"
+    alignItems: "center",
+    alignContent: "stretch",
+    height: '100vh'
   }
 }));
 
 const renderStep = (step, values, errors, touched) => {
-  console.log(values)
+  //console.log(values)
   switch (step) {
     case 1:
       return <FormFirstStep errors={errors} touched={touched} />;
@@ -47,7 +49,7 @@ const MultiStep = () => {
     interests: ""
   };
   const handleSubmit = () => setStep(step => step + 1);
-  console.log(step)
+  // console.log(step)
 
   const validate = values => {
     const errors = {};

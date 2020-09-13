@@ -32,7 +32,9 @@ exports.login = function(req, res) {
             bcrypt.compare(req.body.password, user.password, function(err, result) {
                 if(result)
                 {
+                    //console.log(result)
                     let token = jwt.sign({ id: user._id, admin: false }, jwt_secret, {expiresIn: '1h'});
+                    //console.log(token)
                     res.status(200).json({auth: true, token: token})
                 }
                 else

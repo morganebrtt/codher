@@ -1,7 +1,36 @@
 #loginContent {
-    border: 1px solid red;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-evenly;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    height: 50vh;
+}
+
+#loginContent form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 100%;
+    align-content:stretch;
+}
+
+.auth-button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+
+}
+.auth-button div {
+    width: 90%;
+    margin-bottom: 15px;
+}
+
+.auth-button button, a {
+    width: 100%;
 }

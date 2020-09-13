@@ -52,7 +52,7 @@ const FormFirstStep = formikProps => {
 
         <Field
           name="bio"
-          label="Ici tu peux écrire ce que tu veux sur toi :)"
+          label="Ta biographie"
           as={TextField}
           error={touched.bio && errors.bio}
           helperText={touched.bio && errors.bio}

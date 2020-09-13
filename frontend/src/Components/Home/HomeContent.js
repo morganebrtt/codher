@@ -8,15 +8,13 @@ const HomeContent = () => {
         <div id="homeContent">
             <h2>welcome</h2>
             <div id="homeText">
-                <p>Ce petit animal tout mignon est un wombat. 
-                Pendant les terribles incendies en Australie, 
-                il a accueilli de nombreuses autres espèces</p>
+                <p>Codher est une plateforme de mise en relation entre développeuses web</p>
             </div>
-            <ContainedButton colors={{text: '#FFF', bg: '#D25857'}}>
-                Connexion
-            </ContainedButton>
-            <OutlinedButton colors={{text: '#FFF', bg: 'none', border: '1px solid #FFF'}}>
+            <ContainedButton linkTo="/auth/register" colors={{text: '#FFF', bg: '#D25857'}}>
                 Inscription
+            </ContainedButton>
+            <OutlinedButton linkTo="/auth/login" colors={{text: '#FFF', bg: 'none', border: '1px solid #FFF'}}>
+                Connexion
             </OutlinedButton>
         </div>
     )

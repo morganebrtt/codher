@@ -1,14 +1,14 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 
 const OutlinedButton = (props) => {
-    const { colors, children } = props;
+    const { colors, children, linkTo = false } = props;
 
     const useStyles = makeStyles(theme => ({
         root: {
           '& > *': {
-            margin: theme.spacing(1),
             color: colors.text,
             backgroundColor: colors.bg,
             border: colors.border,
@@ -23,9 +23,10 @@ const OutlinedButton = (props) => {
 
   return (
     <div className={classes.root}>
-      <Button variant="outlined">
-        {children}
-      </Button>
+      {linkTo
+        ? <Button component={Link} to={linkTo} variant="outlined">{children}</Button>
+        : <Button type="submit" variant="outlined">{children}</Button>
+      } 
     </div>
   );
 }
